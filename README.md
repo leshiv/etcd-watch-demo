@@ -1,2 +1,3 @@
 # EtcdWatchDemo
-Demo syncing local registry with etcd. Written in golang, utilizing coreos/go-etcd.
+A straight forward demo showing a common use case of go-etcd client.
+
