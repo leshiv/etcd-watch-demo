@@ -24,9 +24,14 @@ func (w *WrappedEtcdClient) WatchEtcd(dir string, ch chan *etcd.Response, stop c
 						if rs != nil {
 							println(rs.Node.Value)
 							ch <- rs
+						}else {
+							//receives nil when etcd is not reachable
+							time.Sleep(5 * time.Second)
 						}
 					case <-stop:
 						break
+					default:
+						time.Sleep(time.Second)
 					}
 				}
 			}()
